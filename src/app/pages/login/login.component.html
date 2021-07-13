@@ -5,9 +5,37 @@
     <small>Login to your account on iDeliver</small>
   </div>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+      <div padding>
+            <form >
+              <ion-list>
+                <ion-item>
+                  <ion-input
+                    type="tel" 
+                    name="phone"
+                    placeholder="Phone Number"
+                  ></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-input
+                    type="Password" name="password" required minilength="6" placeholder="Password"></ion-input>
+                </ion-item>
+                <p class="error">
+                  Password should five digits.
+                </p>
+              </ion-list>
+              <ion-button
+                type="submit"
+                shape="round"
+                style="color:white"
+                expand="block"
+              >
+              Login to Your Account
+              </ion-button>
+            </form>
+            <br/>
+            <div text-center>
+              <small> Forgot password? <a><b>Click Here</b></a></small>
+            </div>
+          </div>
 </ion-content>
 
