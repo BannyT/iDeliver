@@ -4,7 +4,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { ShopsComponent } from './pages/shops/shops.component';
 import { AddshopComponent } from './pages/addshop/addshop.component';
-import {ProductsComponent} from './pages/products/products.component' 
+import {ProductsComponent} from './pages/products/products.component';
+import {OrdersComponent} from './pages/orders/orders.component' 
 
 
 
@@ -14,8 +15,10 @@ const routes: Routes = [
   { path: 'login', component:LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'shops', component:ShopsComponent },
-   {path:'addshop',component:AddshopComponent},
-   {path:'products',component:ProductsComponent}
+  {path:'addshop',component:AddshopComponent},
+  {path:'products',component:ProductsComponent},
+  {path:'orders',component:OrdersComponent}
+
 
   
   
