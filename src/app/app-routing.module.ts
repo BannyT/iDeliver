@@ -5,7 +5,11 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { ShopsComponent } from './pages/shops/shops.component';
 import { AddshopComponent } from './pages/addshop/addshop.component';
 import {ProductsComponent} from './pages/products/products.component';
-import {OrdersComponent} from './pages/orders/orders.component' 
+import {OrdersComponent} from './pages/orders/orders.component'
+import { TabBarsComponent } from './pages/tab-bars/tab-bars.component';
+import {GalleryComponent} from './pages/gallery/gallery.component'
+import{AboutshopComponent} from './pages/aboutshop/aboutshop.component'
+
 
 
 
@@ -17,7 +21,10 @@ const routes: Routes = [
   { path: 'shops', component:ShopsComponent },
   {path:'addshop',component:AddshopComponent},
   {path:'products',component:ProductsComponent},
-  {path:'orders',component:OrdersComponent}
+  {path:'orders',component:OrdersComponent},
+  {path:'tabs',component:TabBarsComponent},
+  {path:'gallery',component:GalleryComponent},
+  {path:'aboutshop',component:AboutshopComponent}
 
 
   
