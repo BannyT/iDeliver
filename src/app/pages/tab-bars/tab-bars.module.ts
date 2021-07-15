@@ -5,9 +5,11 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { TabBarsPageRoutingModule } from './tab-bars-routing.module';
-
 import { TabBarsPage } from './tab-bars.page';
+import { GalleryPage } from '../gallery/gallery.page';
+import { AboutshopPage } from '../aboutshop/aboutshop.page';
+import { ProductsPage } from '../products/products.page';
+
 const routes: Routes = [
   {
     path: '',
@@ -18,7 +20,16 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../gallery/gallery.module#GalleryPageModule'
+            component:GalleryPage
+          }
+        ]
+      },
+      {
+        path: 'products',
+        children: [
+          {
+            path: '',
+            component:ProductsPage
           }
         ]
       },
@@ -27,15 +38,21 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../aboutshop/aboutshop.module#AboutshopPageModule'
+            component:AboutshopPage
           }
         ]
-      }
+      },
+      {
+       path: '',
+       redirectTo: '/tabs/products',
+        pathMatch: 'full'
+      },
+      
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/gallery',
+    redirectTo: '/tabs/products',
     pathMatch: 'full'
   }
 ];
@@ -45,8 +62,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    TabBarsPageRoutingModule
+    RouterModule.forChild(routes)
   ],
-  declarations: [TabBarsPage]
+  declarations: [TabBarsPage,AboutshopPage,GalleryPage,ProductsPage]
 })
 export class TabBarsPageModule {}
