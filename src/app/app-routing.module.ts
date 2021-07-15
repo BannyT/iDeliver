@@ -4,8 +4,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { ShopsComponent } from './pages/shops/shops.component';
 import { AddshopComponent } from './pages/addshop/addshop.component';
-import {OrdersComponent} from './pages/orders/orders.component'
-// import { TabBarsComponent } from './pages/tab-bars/tab-bars.component';
+
 
 
 
@@ -18,7 +17,7 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'shops', component:ShopsComponent },
   {path:'addshop',component:AddshopComponent},
-  {path:'orders',component:OrdersComponent},
+  
   {
     path: 'tabs',
     loadChildren: () => import('./pages/tab-bars/tab-bars.module').then( m => m.TabBarsPageModule)
@@ -34,6 +33,10 @@ const routes: Routes = [
   {
     path: 'products',
     loadChildren: () => import('./pages/products/products.module').then( m => m.ProductsPageModule)
+  },
+  {
+    path: 'orders',
+    loadChildren: () => import('./pages/orders/orders.module').then( m => m.OrdersPageModule)
   }
 
 
