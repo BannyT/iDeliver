@@ -12,7 +12,7 @@ export class SignupPage implements OnInit {
   ngOnInit() {
   }
 
-  onsubmit(form){
+  onSubmit(form){
     console.log(form.value)
   }
 
