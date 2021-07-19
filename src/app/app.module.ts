@@ -12,15 +12,9 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
-const config = {
-  apiKey: '<your-key>',
-  authDomain: '<your-project-authdomain>',
-  databaseURL: '<your-database-URL>',
-  projectId: '<your-project-id>',
-  storageBucket: '<your-storage-bucket>',
-  messagingSenderId: '<your-messaging-sender-id>'
-};
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,7 +24,9 @@ const config = {
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
     AngularFireStorageModule ,// storage
-    BrowserModule, 
+    BrowserModule,
+    FormsModule, 
+    CommonModule,
     IonicModule.forRoot(), 
     AppRoutingModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
