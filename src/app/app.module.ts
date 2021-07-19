@@ -24,8 +24,8 @@ import { environment } from 'src/environments/environment';
     AngularFireAuthModule, // auth
     AngularFireStorageModule ,// storage
     BrowserModule,
-    FormsModule, 
-    CommonModule,
+    FormsModule, //forms module
+    CommonModule, //common module
     IonicModule.forRoot(), 
     AppRoutingModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
