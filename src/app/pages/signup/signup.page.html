@@ -33,7 +33,7 @@
 
     </ion-list>
     <small class="error">{{error}}</small>
-    <ion-button  type="submit"  shape="round" style="color:white" expand="block"> Create Account </ion-button>
+    <ion-button  type="submit" [disabled]="btnDisabled" shape="round" style="color:white" expand="block"> {{btnText}} </ion-button>
      
   </form>
   <br/>
