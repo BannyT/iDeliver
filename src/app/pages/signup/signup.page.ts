@@ -4,6 +4,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { ApiService } from '../services/api.service';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-signup',
@@ -14,13 +15,17 @@ export class SignupPage implements OnInit {
   btnText="Create Account"
   btnDisabled=false;
   error:any;
+  user:any
   constructor(
     public fireAuth:AngularFireAuth,
     public firestore:AngularFireStorage,
     public service:ApiService,
     public router:Router,
+    public data:DataService,
     public toast:ToastController
-    ) { }
+    ) {
+      
+     }
 
   ngOnInit() {
   }

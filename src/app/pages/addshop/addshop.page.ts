@@ -4,6 +4,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { ApiService } from '../services/api.service';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-addshop',
@@ -20,14 +21,17 @@ export class AddshopPage implements OnInit {
     public firestore:AngularFireStorage,
     public service:ApiService,
     public router:Router,
+    public data:DataService,
     public toast:ToastController
-  ) { }
+  ) {
+    this.user  = this.data.getActiveUser();
+   }
 
   ngOnInit() {
   }
   
   onSubmit(form) {
-    this.btnText = 'Please wait..';
+    this.btnText = 'Creating Shop .....';
     this.btnDisabled = true;
     const shop = form.value;
     shop.owner = this.user.uid;
@@ -36,11 +40,20 @@ export class AddshopPage implements OnInit {
       this.btnText = 'Add Shop';
       this.btnDisabled = false;
       if (result.flag ) {
+        this.presentToast()
         localStorage.setItem('myshop', JSON.stringify(result.data));
         this.router.navigate(['/shop/orders'])
       } else {
         alert(result.error.message);
       }
     });
+  }
+
+  async presentToast() {
+    const toast = await this.toast.create({
+      message: 'Shop successfuly Created',
+      duration: 2000
+    });
+    toast.present();
   }
 }
