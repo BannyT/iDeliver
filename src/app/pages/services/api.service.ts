@@ -46,7 +46,7 @@ export class ApiService {
    }).catch( error => callback({flag: false, error}));
   }
 
-  // method to edit a collection in our database
+  // method to edit data in our database
 
   _edit(collection, uid, data, callback) {
     this.fireStore.collection(collection)
@@ -56,7 +56,7 @@ export class ApiService {
     .catch( error =>  callback({error}));
   }
 
-   // method to delete a collection from our database
+   // method to delete data from our database
   _delete( collection, uid, callback) {
     this.fireStore.collection(collection)
     .doc(uid)
