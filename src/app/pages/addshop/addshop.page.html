@@ -8,40 +8,46 @@
   <div>
     <p>Hi Banny, Please lets us know about your Business</p>
   </div>
-  <form >
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)" >
     <ion-list>
       
         <ion-item>
           <ion-label position="floating">Shop Name</ion-label>
-          <ion-input type="text"  name="name"  placeholder="Shop Name"></ion-input>
+          <ion-input type="text" ngModel  name="name"  placeholder="Shop Name"></ion-input>
+        </ion-item>
+        <br/>
+
+        <ion-item>
+          <ion-label position="floating"> Shop Description</ion-label>
+          <ion-textarea  ngModel name="description" required ></ion-textarea>
         </ion-item>
         <br/>
 
         <ion-item>
           <ion-label position="floating">Phone Number</ion-label>
-          <ion-input type="tel"  name="phone"  placeholder="+256"></ion-input>
+          <ion-input type="tel" ngModel  name="phone"  placeholder="+256"></ion-input>
         </ion-item>
         <br/>
 
         <ion-item>
             <ion-label position="floating">Email Address</ion-label>
-            <ion-input type="email"  name="email"  placeholder="example@gmail.com"></ion-input>
+            <ion-input type="email" ng Model name="email"  placeholder="example@gmail.com"></ion-input>
         </ion-item>
         <br/>
   
         <ion-item>
             <ion-label position="floating">Working hours</ion-label>
-            <ion-input type="text"  name="hours" required   placeholder="8am - 10pm monday to friday"></ion-input>
+            <ion-input type="text" ngModel  name="hours" required   placeholder="8am - 10pm monday to friday"></ion-input>
         </ion-item>
         <br/>
 
         <ion-item>
           <ion-label position="floating"> Address</ion-label>
-          <ion-textarea name="address" required ></ion-textarea>
+          <ion-textarea name="address" ngModel required ></ion-textarea>
         </ion-item>
         <br/>
      
     </ion-list>
-    <ion-button  type="submit"  shape="round" style="color:white" expand="block">Create Shop</ion-button>
+    <ion-button  type="submit"  shape="round" style="color:white" expand="block">{{btnText}}</ion-button>
   </form>
 </ion-content>
