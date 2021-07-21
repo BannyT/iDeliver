@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
+//this is auto imported
 import { AngularFirestore } from '@angular/fire/firestore';
+//commicates with database
 import { AngularFireStorage } from '@angular/fire/storage';
+//communicates with our online bucket for file storage
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +12,7 @@ export class ApiService {
 
   constructor( public fireStore: AngularFirestore, public fireStorage: AngularFireStorage) { }
 
-  //method to get collections from database  
+  //method to get collections or data from database  
   _get(collection, where = null) {
     if ( where !== null ) {
       return this.fireStore.collection(collection, ref => ref.where(where.key, '==', where.value).orderBy('timeStamp', 'desc')).get();

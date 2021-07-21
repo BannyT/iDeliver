@@ -71,5 +71,7 @@ export class LoginPage implements OnInit {
   loginUser(password, email) {
     return this.fireAuth.signInWithEmailAndPassword(email, password);
   }
-
+  goToSignup(){
+    this.router.navigate(['/signup'])
+  }
 }
