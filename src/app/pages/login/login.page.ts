@@ -43,7 +43,7 @@ export class LoginPage implements OnInit {
             if (this.userProfile.type === 'buyer') {
               this.router.navigate(['/shops'])
             } else {
-              this.service._get('shops', {key: 'vendor', value: uid}).subscribe( shopData => {
+              this.service._get('shops', {key: 'owner', value: uid}).subscribe( shopData => {
                   const shops = shopData.docs.map(doc => doc.data());
                   if ( shops.length === 0) {
                     this.router.navigate(['/addshop'])
