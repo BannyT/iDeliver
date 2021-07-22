@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireStorage } from '@angular/fire/storage';
 import { ApiService } from '../../services/api.service';
 import { DataService } from '../../services/data.service';
 
@@ -12,19 +13,23 @@ export class ProductsPage implements OnInit {
   shop: any;
   products: any;
   file: File;
+  documentFile=""
+  documentUrl=""
   btnText = 'Add Product';
   processing = false;
   img: any;
   constructor(
     public data:DataService,
-    public api:ApiService
+    public api:ApiService,
+    public afStorage:AngularFireStorage
   ) {
 
    }
 
   ngOnInit() {
-    this.shop = this.data.getMyShop();
+    this.shop = this.data.getMyShop(); 
     this.img = 'assets/icon/shop.jpg';
+    
   }
 
   ionViewWillEnter(){
@@ -35,6 +40,7 @@ export class ProductsPage implements OnInit {
     const where =  {key: 'shop_id', value: this.shop.id };
     this.api._get('products', where).subscribe( data => {
       this.products = data.docs.map(doc => doc.data());
+      console.log(this.products)
     });
   }
 
@@ -43,14 +49,14 @@ export class ProductsPage implements OnInit {
   }
 
 
-  addServices( form ) {
+  async addServices( form ) {
     this.btnText = 'Please wait ... ';
     this.processing = true;
-    this.api._uploadImageFile( this.file, 'products', ( uploadResult ) => {
-      const product = form.value;
-      product.shop_id = this.shop.id;
-      product.download_url = uploadResult.url,
-      this.api._add('products', product, ( result ) => {
+    const product = form.value;
+    product.shop_id = this.shop.id;
+    const url = await this.upload(this.documentFile);
+    product.imageUrl=url;
+    this.api._add('products', product, ( result ) => {
           this.btnText = 'Add Product';
           this.processing = false;
           this.img = 'assets/icon/shop.jpg';
@@ -61,14 +67,28 @@ export class ProductsPage implements OnInit {
             alert(result.error.message);
           }
       });
-    });
+    
+  }
+      //selecting image
+  selectImage(event) {
+    this.documentFile = event.target.files[0];
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+      reader.onload = (event: any) => {
+        this.documentUrl = event.target.result;
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    }
+  }
+  //uploading images
+  async upload(file) {
+    // console.log(file);
+    const randomId = Math.random().toString(36).substring(2);
+    const ref = this.afStorage.ref("documents/" + randomId);
+    const task = await ref.put(file);
+    const downloadURL = await task.ref.getDownloadURL();
+    return downloadURL;
   }
 
-  pickPhoto($event): void {
-    this.file = $event.target.files[0];
-    const reader = new FileReader();
-    reader.onload = e => this.img = reader.result;
-    reader.readAsDataURL(this.file);
-  }
 
 }

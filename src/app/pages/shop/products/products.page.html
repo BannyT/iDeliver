@@ -21,7 +21,7 @@
   <div *ngIf="openForm" class="form">
     <ion-item-divider>
       <ion-label>
-        Add New service
+        Add New Product
       </ion-label>
     </ion-item-divider>
 
@@ -34,7 +34,7 @@
           name="name"
           required
           #serviceCtrl="ngModel"
-          placeholder="service name"
+          placeholder="product name"
         ></ion-input>
       </ion-item>
 
@@ -70,12 +70,10 @@
               <ion-item>
                   <input
                     type="file"
-                    name="file"
-                    id="file"
                     class="fileInput"
-                    (change)="pickPhoto($event)"
+                    (change)="selectImage($event)"
                   />
-                  <label for="file"><ion-icon name="images"></ion-icon> Select Image</label>
+                  <label for="file"><ion-icon name="images"></ion-icon> Select </label>
                 </ion-item>
           </ion-col>
         </ion-row>
@@ -113,7 +111,7 @@
 
     <ion-item *ngFor="let product of products"  >
       <ion-thumbnail slot="start">
-        <img [src]="product.download_url"  onError="this.src='assets/icon/shop.jpg';" >
+        <img [src]="product.imageUrl"  onError="this.src='assets/icon/shop.jpg';" >
       </ion-thumbnail>
       <ion-label>
         <h2>{{product.name }}</h2>
