@@ -10,27 +10,26 @@
 <ion-content>
   <div padding>
    <span style="color:#1a4207;margin: 10px;">Banny's Gallery</span>
+  </div> <br>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="gotoProducts()" >
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <div class="empty" *ngIf="pictures?.length === 0 ">
+    <ion-icon name="images"></ion-icon>     
+    <h5>No Pictures in yo gallery !</h5>
+    <small>
+      Add Products you have in yo shop for advertising. It will help
+      people see your products.
+    </small>
   </div>
 
   <ion-row>
-    <ion-col class="imgContainer" text-center size="4" sizeMd="4" sizeXl="3">
-      <img src="assets/icon/shop.jpg"/> 
+    <ion-col *ngFor="let picture of pictures" class="imgContainer" text-center size="4" sizeMd="4" sizeXl="3">
+      <img [src]="picture.imageUrl"/> 
     </ion-col>
-    <ion-col class="imgContainer" text-center size="4" sizeMd="4" sizeXl="3">
-      <img src="assets/icon/shop.jpg"/> 
-    </ion-col>
-    <ion-col class="imgContainer" text-center size="4" sizeMd="4" sizeXl="3">
-      <img src="assets/icon/shop.jpg"/> 
-    </ion-col>
-    <ion-col class="imgContainer" text-center size="4" sizeMd="4" sizeXl="3">
-      <img src="assets/icon/shop.jpg"/> 
-    </ion-col>
-    <ion-col class="imgContainer" text-center size="4" sizeMd="4" sizeXl="3">
-      <img src="assets/icon/shop.jpg"/> 
-    </ion-col>
-    <ion-col class="imgContainer" text-center size="4" sizeMd="4" sizeXl="3">
-      <img src="assets/icon/shop.jpg"/> 
-    </ion-col>
-  </ion-row>
-  
+   </ion-row>  
 </ion-content>
