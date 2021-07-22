@@ -96,7 +96,7 @@
   </div>
   <ion-list lines="none">
     <div padding>
-      Available products for <span style="color:#1f8611;">Bannys Boutique</span>
+      Available products for <span style="color:#1f8611;">{{shop.name}}</span>
     </div> <br> 
     
     <div class="empty"  *ngIf="products?.length === 0 ">
@@ -116,7 +116,7 @@
       <ion-label>
         <h2>{{product.name }}</h2>
         <p>Price : Ugx.{{product.price }}</p>
-        <p>Can be delivered within 45 minutes</p>
+        <p>{{product.duration}}</p>
       </ion-label>
       <ion-button slot="end"> Edit</ion-button>
     </ion-item> 
