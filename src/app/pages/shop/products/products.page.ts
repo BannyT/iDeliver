@@ -37,7 +37,7 @@ export class ProductsPage implements OnInit {
   ionViewWillEnter(){
     this.fetchProduct();
   }
-
+   
   fetchProduct() {
     const where =  {key: 'shop_id', value: this.shop.id };
     this.api._get('products', where).subscribe( data => {
