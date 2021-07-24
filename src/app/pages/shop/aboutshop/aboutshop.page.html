@@ -9,7 +9,7 @@
 <ion-content>
   <ion-card>
     <ion-card-header class="card-head">
-      <img src="assets/icon/shop.jpg" height="200px" style="width: 100%" alt=""  />
+      <img [src]="shop.img" height="200px" style="width: 100%" alt=""  />
       <div class="floatingbtn">
         <ion-icon
           style="position: relative; color:white; font-size: 35px;"
@@ -22,7 +22,12 @@
         </ion-card-content>
       </ion-card>
     </ion-card-header>
-    <br />
+    <br /> <br><br>
+
+  <ion-item color="success" style="opacity: .5;">
+    <input type="file" name="file" id="file" class="fileInput" (change)="pickPhoto($event)"/>
+    <label for="file"><ion-icon name="images"></ion-icon> Edit Image</label>
+  </ion-item> <br><br>
 
     <ion-card-content>
       <ion-list lines="none">

@@ -26,15 +26,17 @@
 
     <ion-item  *ngFor="let order of orders" >
       <ion-thumbnail slot="start">
-        <img src="assets/icon/shop.jpg"/>
+        <img [src]="order.product.imageUrl"/>
       </ion-thumbnail>
       <ion-label>
-        <h2>{{order.user.name}}</h2>
         <h2>{{order.user.name}}</h2>
         <p>{{order.product.name}} | Ugx.{{order.product.price}} </p>
         <p>Payment on delivery</p>
       </ion-label>
-      <ion-button slot="end">Pending</ion-button>
+      <ion-button fill="outline" slot="end" (click)="confirmOrder(order)" *ngIf="order.status==='new'">Confirm</ion-button>
+      <ion-button name="call" fill="outline" slot="end" *ngIf="order.status==='pending'" (click)="callUser(order.user.phone)">Contact</ion-button>
+      <ion-button fill="outline"  color="success" disabled slot="end" *ngIf="order.status==='confirmed'">Deliver Product</ion-button>
+      <ion-button fill="outline"  color="danger"  disabled slot="end" *ngIf="order.status==='canceled'">Cancelled</ion-button>
     </ion-item>
   </ion-list>
       

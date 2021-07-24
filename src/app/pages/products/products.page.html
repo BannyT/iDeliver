@@ -2,8 +2,8 @@
   <ion-toolbar  color="primary" >
     <ion-title>  Welcome to {{shop.name}}</ion-title>
     <ion-buttons slot="primary">
-        <ion-button  >
-          <ion-icon slot="icon-only" name="calendar"></ion-icon>
+        <ion-button (click)="backToShops()" >
+          <ion-icon  slot="icon-only" name="arrow-undo-circle-outline"></ion-icon>
         </ion-button>
       </ion-buttons>
   </ion-toolbar>

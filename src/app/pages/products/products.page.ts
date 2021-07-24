@@ -49,6 +49,8 @@ export class ProductsPage implements OnInit {
 
   }
 
-  
+  backToShops(){
+    this.router.navigate(['/shops'])
+  }
 
 }
