@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar  color="primary" >
     <ion-title> My Orders </ion-title>
-    <ion-buttons (click)="goToShops" slot="primary">
+    <ion-buttons (click)="goToShops()" slot="primary">
         <ion-button  >
           <ion-icon slot="icon-only" name="chevron-forward-circle-outline"></ion-icon>
         </ion-button>
@@ -33,11 +33,11 @@
         <p>Payment on delivery</p>
       </ion-label>
       <ion-button fill="outline" slot="end" (click)="presentActionSheet(order)" *ngIf="order.status === 'new' ">Confirm Order</ion-button>
-      <ion-button fill="clear" color="success" disabled slot="end" *ngIf="appointment.status === 'confirmed'" >Verified</ion-button>
-      <ion-button fill="clear" color="danger" disabled slot="end" *ngIf="appointment.status === 'canceled'" >Cancelled</ion-button>
+      <ion-button fill="clear" color="success" disabled slot="end" *ngIf="order.status === 'confirmed'" >Verified</ion-button>
+      <ion-button fill="clear" color="danger" disabled slot="end" *ngIf="order.status === 'canceled'" >Cancelled</ion-button>
     </ion-item>
      
-    <ion-segment (click)="goToShops" >
+    <ion-segment (click)="goToShops()" >
       <ion-segment-button value="friends">
         <ion-label>Back to Shoppping</ion-label>
       </ion-segment-button>
