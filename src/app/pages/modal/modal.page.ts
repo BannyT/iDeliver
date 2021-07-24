@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { ModalController, NavParams } from "@ionic/angular";
+import { ModalController, NavParams, ToastController } from "@ionic/angular";
 import { Router } from "@angular/router";
 
 import { Resolve, ActivatedRoute } from "@angular/router";
@@ -28,7 +28,8 @@ export class ModalPage implements OnInit {
     public dataService:DataService,
     public api:ApiService,
     public activeRoute: ActivatedRoute,
-    public navParams: NavParams
+    public navParams: NavParams,
+    public toast:ToastController
   ) {
     this.user = this.dataService.getActiveUser();
     this.shop = this.dataService.getActiveShop();
@@ -47,6 +48,7 @@ export class ModalPage implements OnInit {
     order.shop_id = this.shop.id;
     order.status = 'new';
     this.api._add('orders', order, ( dataResult ) => {
+      this.presentToast()
       this.btnText = 'Make Order';
       this.processing = true;
       if ( dataResult.flag ) {
@@ -63,5 +65,14 @@ export class ModalPage implements OnInit {
     this.modalCtrl.dismiss({
       dismissed: true,
     });
+  }
+
+
+  async presentToast() {
+    const toast = await this.toast.create({
+      message: 'Order Sucessfully Made',
+      duration: 2000
+    });
+    toast.present();
   }
 }

@@ -1,64 +1,49 @@
 <ion-header>
   <ion-toolbar  color="primary" >
     <ion-title> My Orders </ion-title>
-    <ion-buttons slot="primary">
+    <ion-buttons [routerLink]="/shops" slot="primary">
         <ion-button  >
-          <ion-icon slot="icon-only" name="calendar"></ion-icon>
+          <ion-icon slot="icon-only" name="chevron-forward-circle-outline"></ion-icon>"></ion-icon>
         </ion-button>
       </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <ion-content>
+  <div class="empty"  *ngIf="orders?.length === 0 ">
+    <ion-icon name="notifications"></ion-icon>     
+    <h5>No orders made!</h5>
+    <small>
+      Go shopping and place some orders.
+    </small>
+  </div>
+
   <br>
   <ion-list lines="none">
     <div padding>
-      Orders Made <span style="color:#1f8611;"></span>
+      My Orders  <span style="color:#1f8611;"></span>
     </div> <br> 
 
-    <ion-item >
+    <ion-item *ngFor="let order of orders" >
       <ion-thumbnail slot="start">
-        <img src="assets/icon/shop.jpg"/>
+        <img [src]="order.product.imageUrl"/>
       </ion-thumbnail>
       <ion-label>
-        <h2>Denim Jackets</h2>
-        <p>Price : Ugx:300000</p>
+        <h2>{{order.product.name}}</h2>
+        <p>Price : {{order.product.price}}</p>
         <p>Payment on delivery</p>
       </ion-label>
-      <ion-button slot="end">Pending</ion-button>
+      <ion-button fill="outline" slot="end" (click)="presentActionSheet(order)" *ngIf="order.status === 'new' ">Confirm Order</ion-button>
+      <ion-button fill="clear" color="success" disabled slot="end" *ngIf="appointment.status === 'confirmed'" >Verified</ion-button>
+      <ion-button fill="clear" color="danger" disabled slot="end" *ngIf="appointment.status === 'canceled'" >Cancelled</ion-button>
     </ion-item>
-    <ion-item >
-      <ion-thumbnail slot="start">
-        <img src="assets/icon/shop.jpg"/>
-      </ion-thumbnail>
-      <ion-label>
-        <h2>Denim Jackets</h2>
-        <p>Price : Ugx:300000</p>
-        <p>Payment on delivery</p>
-      </ion-label>
-      <ion-button slot="end">Pending</ion-button>
-    </ion-item>
-    <ion-item >
-      <ion-thumbnail slot="start">
-        <img src="assets/icon/shop.jpg"/>
-      </ion-thumbnail>
-      <ion-label>
-        <h2>Denim Jackets</h2>
-        <p>Price : Ugx:300000</p>
-        <p>Payment on delivery</p>
-      </ion-label>
-      <ion-button slot="end">Pending</ion-button>
-    </ion-item>
-    <ion-item >
-      <ion-thumbnail slot="start">
-        <img src="assets/icon/shop.jpg"/>
-      </ion-thumbnail>
-      <ion-label>
-        <h2>Denim Jackets</h2>
-        <p>Price : Ugx:300000</p>
-        <p>Payment on delivery</p>
-      </ion-label>
-      <ion-button slot="end">Pending</ion-button>
-    </ion-item> 
+     
+    <ion-segment [routerLink]="/shops" >
+      <ion-segment-button value="friends">
+        <ion-label>Back to Shoppping</ion-label>
+      </ion-segment-button>
+     
+    </ion-segment>
+
   </ion-list>
       
 </ion-content>
