@@ -1,9 +1,9 @@
 <ion-header>
   <ion-toolbar  color="primary" >
     <ion-title> My Orders </ion-title>
-    <ion-buttons [routerLink]="/shops" slot="primary">
+    <ion-buttons (click)="goToShops" slot="primary">
         <ion-button  >
-          <ion-icon slot="icon-only" name="chevron-forward-circle-outline"></ion-icon>"></ion-icon>
+          <ion-icon slot="icon-only" name="chevron-forward-circle-outline"></ion-icon>
         </ion-button>
       </ion-buttons>
   </ion-toolbar>
