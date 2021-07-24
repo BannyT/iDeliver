@@ -31,4 +31,8 @@ export class ShopsPage implements OnInit {
     this.router.navigate(['/tabs/products']);
      
    }
+
+   goToOrders(){
+     this.router.navigate(['/orders'])
+   }
 }

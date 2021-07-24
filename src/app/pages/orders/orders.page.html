@@ -37,7 +37,7 @@
       <ion-button fill="clear" color="danger" disabled slot="end" *ngIf="appointment.status === 'canceled'" >Cancelled</ion-button>
     </ion-item>
      
-    <ion-segment [routerLink]="/shops" >
+    <ion-segment (click)="goToShops" >
       <ion-segment-button value="friends">
         <ion-label>Back to Shoppping</ion-label>
       </ion-segment-button>

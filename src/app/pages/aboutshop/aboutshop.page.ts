@@ -11,7 +11,7 @@ export class AboutshopPage implements OnInit {
   constructor(public data:DataService) { }
 
   ngOnInit() {
-    this.shop = this.data.getMyShop();
+    this.shop = JSON.parse(localStorage.getItem('activeShop'));
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ActionSheetController, ToastController } from '@ionic/angular';
 import { ApiService } from '../services/api.service';
 import { DataService } from '../services/data.service';
@@ -21,7 +22,8 @@ export class OrdersPage implements OnInit {
     public data:DataService,
     public api:ApiService,
     public actionSheetController: ActionSheetController,
-    public toast:ToastController
+    public toast:ToastController,
+    public router:Router
 
   ) { }
 
@@ -81,6 +83,10 @@ export class OrdersPage implements OnInit {
       await this.showToast(`Confirmation done`);
       this.fetchMyOrders();
     });
+  }
+
+  goToShops(){
+    this.router.navigate(['/shops'])
   }
 
 }
