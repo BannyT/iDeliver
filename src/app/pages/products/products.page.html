@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar  color="primary" >
-    <ion-title>Available Products in this Shop </ion-title>
+    <ion-title>  Welcome to {{shop.name}} Shop </ion-title>
     <ion-buttons slot="primary">
         <ion-button  >
           <ion-icon slot="icon-only" name="calendar"></ion-icon>
@@ -14,86 +14,20 @@
   <br>
   <ion-list lines="none">
     <div padding>
-      Available products for <span style="color:#1f8611;">Bannys Boutique</span>
+      Available products at <span style="color:#1f8611;">{{shop.name}}</span>
     </div> <br> 
 
-    <ion-item >
+    <ion-item *ngFor="let product of products" (click)="presentModal(product)"  >
       <ion-thumbnail slot="start">
-        <img src="assets/icon/shop.jpg"/>
+        <img [src]="product.imageUrl"/>
       </ion-thumbnail>
       <ion-label>
-        <h2>Denim Jackets</h2>
-        <p>Price : Ugx:300000</p>
-        <p>Can be delivred within 45 minutes</p>
+        <h2>{{product.name}}</h2>
+        <p>Price : {{product.price}}</p>
+        <p>{{product.duration}}</p>
       </ion-label>
       <ion-button slot="end"> Order Product</ion-button>
     </ion-item> 
 
-    <ion-item >
-      <ion-thumbnail slot="start">
-        <img src="assets/icon/puppy.jpg"/>
-      </ion-thumbnail>
-      <ion-label>
-        <h2>Puppy</h2>
-        <p>Price : Ugx:300000</p>
-        <p>Can be delivred within 45 minutes</p>
-      </ion-label>
-      <ion-button slot="end"> Order Product</ion-button>
-    </ion-item> 
-    <ion-item >
-      <ion-thumbnail slot="start">
-        <img src="assets/icon/puppy.jpg"/>
-      </ion-thumbnail>
-      <ion-label>
-        <h2>Puppy</h2>
-        <p>Price : Ugx:300000</p>
-        <p>Can be delivred within 45 minutes</p>
-      </ion-label>
-      <ion-button slot="end"> Order Product</ion-button>
-    </ion-item> 
-    <ion-item >
-      <ion-thumbnail slot="start">
-        <img src="assets/icon/puppy.jpg"/>
-      </ion-thumbnail>
-      <ion-label>
-        <h2>Puppy</h2>
-        <p>Price : Ugx:300000</p>
-        <p>Can be delivred within 45 minutes</p>
-      </ion-label>
-      <ion-button slot="end"> Order Product</ion-button>
-    </ion-item> 
-    <ion-item >
-      <ion-thumbnail slot="start">
-        <img src="assets/icon/puppy.jpg"/>
-      </ion-thumbnail>
-      <ion-label>
-        <h2>Puppy</h2>
-        <p>Price : Ugx:300000</p>
-        <p>Can be delivred within 45 minutes</p>
-      </ion-label>
-      <ion-button slot="end"> Order Product</ion-button>
-    </ion-item> 
-    <ion-item >
-      <ion-thumbnail slot="start">
-        <img src="assets/icon/puppy.jpg"/>
-      </ion-thumbnail>
-      <ion-label>
-        <h2>Puppy</h2>
-        <p>Price : Ugx:300000</p>
-        <p>Can be delivred within 45 minutes</p>
-      </ion-label>
-      <ion-button slot="end"> Order Product</ion-button>
-    </ion-item> 
-    <ion-item >
-      <ion-thumbnail slot="start">
-        <img src="assets/icon/puppy.jpg"/>
-      </ion-thumbnail>
-      <ion-label>
-        <h2>Puppy</h2>
-        <p>Price : Ugx:300000</p>
-        <p>Can be delivred within 45 minutes</p>
-      </ion-label>
-      <ion-button slot="end"> Order Product</ion-button>
-    </ion-item> 
   </ion-list>  
 </ion-content>

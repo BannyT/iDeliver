@@ -48,6 +48,10 @@ const routes: Routes = [
   {
     path: 'shops',
     loadChildren: () => import('./pages/shops/shops.module').then( m => m.ShopsPageModule)
+  },
+  {
+    path: 'modal',
+    loadChildren: () => import('./pages/modal/modal.module').then( m => m.ModalPageModule)
   }
 
 
