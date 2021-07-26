@@ -42,4 +42,10 @@ export class OrdersPage implements OnInit {
       console.error(e);
     }
   }
+
+  confirmOrder(order) {
+    this.api._edit('appointments', order.id, {status: 'pending'}, async (result) => {
+        this.fetchOrders();
+    });
+  }
 }
