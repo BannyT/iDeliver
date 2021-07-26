@@ -12,7 +12,7 @@
 
 <ion-content>
   <ion-card *ngFor="let shop of shops"  (click)="visitShop(shop)" >
-     <img [src]="shop.img"/>
+     <img class="image" [src]="shop.img"/>
      <ion-card-header>
       <ion-card-title>{{shop.name}}</ion-card-title>
     </ion-card-header>
