@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { DataService } from '../../services/data.service';
+import { CallNumber } from '@ionic-native/call-number/ngx';
 
 @Component({
   selector: 'app-orders',
@@ -15,6 +16,7 @@ export class OrdersPage implements OnInit {
   constructor(
     public data:DataService,
     public api:ApiService,
+    private callNumber: CallNumber
 
   ) { }
 
@@ -30,5 +32,14 @@ export class OrdersPage implements OnInit {
     this.api._get('orders', where).subscribe( data => {
       this.orders = data.docs.map(doc => doc.data());
     });
+  }
+
+  // calling a user
+  async callUser(phone) {
+    try {
+      await this.callNumber.callNumber(phone, true);
+    } catch (e) {
+      console.error(e);
+    }
   }
 }

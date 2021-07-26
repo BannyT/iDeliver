@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Platform } from '@ionic/angular';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,18 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  constructor(
+    private platform: Platform,
+    private splashScreen: SplashScreen,
+  ) {
+    this.initializeApp();
+  }
+
+
+
+  initializeApp() {
+    this.platform.ready().then(() => {
+      this.splashScreen.hide();
+    });
+  }
 }

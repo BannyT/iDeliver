@@ -15,6 +15,11 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { environment } from 'src/environments/environment';
+import { CallNumber } from '@ionic-native/call-number/ngx';
+import { SplashScreen } from "@ionic-native/splash-screen/ngx";
+
+
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -28,7 +33,11 @@ import { environment } from 'src/environments/environment';
     CommonModule, //common module
     IonicModule.forRoot(), 
     AppRoutingModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy,
+            useClass: IonicRouteStrategy },
+            CallNumber,
+            SplashScreen
+    ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

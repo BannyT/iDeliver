@@ -2,5 +2,19 @@
 	"appId": "io.ionic.starter",
 	"appName": "iDeliver",
 	"webDir": "www",
-	"bundledWebRuntime": false
+	"bundledWebRuntime": false,
+	"linuxAndroidStudioPath": "/home/banny/Downloads/android-studio/bin/studio.sh",
+	"plugins": {
+		"SplashScreen": {
+			"launchShowDuration": 5000,
+			"launchAutoHide": true,
+			"androidScaleType": "CENTER_CROP",
+			"androidSplashResourceName": "splash",
+			"splashFullScreen": false,
+			"splashImmersive": false
+		}
+	},
+	"android": {
+		"allowMixedContent": true
+	}
 }

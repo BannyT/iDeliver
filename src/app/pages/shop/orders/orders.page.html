@@ -35,7 +35,7 @@
       </ion-label>
       <ion-button fill="outline" slot="end" (click)="confirmOrder(order)" *ngIf="order.status==='new'">Confirm</ion-button>
       <ion-button name="call" fill="outline" slot="end" *ngIf="order.status==='pending'" (click)="callUser(order.user.phone)">Contact</ion-button>
-      <ion-button fill="outline"  color="success" disabled slot="end" *ngIf="order.status==='confirmed'">Deliver Product</ion-button>
+      <ion-button fill="outline"  color="success" disabled slot="end" *ngIf="order.status==='confirmed'" (click)="callUser(order.user.phone)"  >Deliver Product</ion-button>
       <ion-button fill="outline"  color="danger"  disabled slot="end" *ngIf="order.status==='canceled'">Cancelled</ion-button>
     </ion-item>
   </ion-list>
