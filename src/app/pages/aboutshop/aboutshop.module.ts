@@ -15,7 +15,7 @@ import { AboutshopPage } from './aboutshop.page';
     IonicModule,
     AboutshopPageRoutingModule
   ],
-  declarations: [AboutshopPage],
+  // declarations: [AboutshopPage],
  
   
 })

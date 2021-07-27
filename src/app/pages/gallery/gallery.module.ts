@@ -24,7 +24,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     GalleryPageRoutingModule
   ],
-  declarations: [GalleryPage],
+  // declarations: [GalleryPage],
 
 })
 export class GalleryPageModule {}
