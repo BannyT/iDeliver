@@ -69,7 +69,7 @@ const routes: Routes = [
   }
 ];
 
-// ,,
+// ,,,ProductsPage,OrdersPage,GalleryPage,AboutshopPage
 
 @NgModule({
   imports: [
